@@ -1,0 +1,29 @@
+<?php
+/*
+ * Turiknox_Facebookpixel
+
+ * @category   Turiknox
+ * @package    Turiknox_Facebookpixel
+ * @copyright  Copyright (c) 2017 Turiknox
+ * @license    https://github.com/turiknox/magento-facebook-pixel/LICENSE.md
+ * @version    1.0.0
+ */
+?>
+<?php if ($this->isEventAllowed('purchase')): ?>
+    <?php if ($purchase = Mage::getSingleton('core/session')->getData('fb_purchase')): ?>
+        <?php Mage::getSingleton('core/session')->unsetData('fb_purchase'); ?>
+        <script type="text/javascript">
+            fbq(
+                'track', 'Purchase',
+                {
+                    'value': '<?php echo $purchase['value']; ?>',
+                    'num_items': '<?php echo $purchase['num_items']; ?>',
+                    'currency': '<?php echo $purchase['currency']; ?>',
+                    'content_type': 'product',
+                    'content_ids': ['<?php echo implode("','", $purchase['content_ids']); ?>'],
+                    'product_catalog_id': <?php echo $this->escapeHtml($this->getProductCatalogId()); ?>
+                }
+            );
+        </script>
+    <?php endif; ?>
+<?php endif; ?>

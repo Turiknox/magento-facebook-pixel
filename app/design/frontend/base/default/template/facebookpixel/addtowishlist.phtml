@@ -1,0 +1,29 @@
+<?php
+/*
+ * Turiknox_Facebookpixel
+
+ * @category   Turiknox
+ * @package    Turiknox_Facebookpixel
+ * @copyright  Copyright (c) 2017 Turiknox
+ * @license    https://github.com/turiknox/magento-facebook-pixel/LICENSE.md
+ * @version    1.0.0
+ */
+?>
+<?php if ($this->isEventAllowed('add_to_wishlist')): ?>
+    <?php if ($products = Mage::getSingleton('core/session')->getData('fb_addtowishlist')): ?>
+        <?php Mage::getSingleton('core/session')->unsetData('fb_addtowishlist'); ?>
+        <script type="text/javascript">
+            fbq(
+                'track', 'AddToWishlist',
+                {
+                    'content_type': '<?php echo $products['content_type']; ?>',
+                    'content_ids': ['<?php echo $this->escapeHtml($products['content_ids']); ?>'],
+                    'content_name': '<?php echo $this->escapeHtml($products['content_name']); ?>',
+                    'value': <?php echo number_format($products['value'],2); ?>,
+                    'currency': '<?php echo $products['currency']; ?>',
+                    'product_catalog_id': <?php echo $this->escapeHtml($this->getProductCatalogId()); ?>
+                }
+            );
+        </script>
+    <?php endif; ?>
+<?php endif; ?>

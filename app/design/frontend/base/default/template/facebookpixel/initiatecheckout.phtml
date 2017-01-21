@@ -1,0 +1,29 @@
+<?php
+/*
+ * Turiknox_Facebookpixel
+
+ * @category   Turiknox
+ * @package    Turiknox_Facebookpixel
+ * @copyright  Copyright (c) 2017 Turiknox
+ * @license    https://github.com/turiknox/magento-facebook-pixel/LICENSE.md
+ * @version    1.0.0
+ */
+?>
+<?php if ($this->isEventAllowed('initiate_checkout')): ?>
+    <?php if ($checkout = Mage::getSingleton('core/session')->getData('fb_initiatecheckout')): ?>
+        <?php Mage::getSingleton('core/session')->unsetData('fb_initiatecheckout'); ?>
+        <script type="text/javascript">
+            fbq(
+                'track', 'InitiateCheckout',
+                {
+                    'value': '<?php echo $checkout['value']; ?>',
+                    'num_items': '<?php echo $checkout['num_items']; ?>',
+                    'currency': '<?php echo $checkout['currency']; ?>',
+                    'content_type': '<?php echo $checkout['content_type']; ?>',
+                    'content_ids': ['<?php echo implode("','", $checkout['content_ids']); ?>'],
+                    'product_catalog_id': <?php echo $this->escapeHtml($this->getProductCatalogId()); ?>
+                }
+            );
+        </script>
+    <?php endif; ?>
+<?php endif; ?>

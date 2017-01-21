@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!--
+/*
+ * Turiknox_Facebookpixel
+
+ * @category   Turiknox
+ * @package    Turiknox_Facebookpixel
+ * @copyright  Copyright (c) 2017 Turiknox
+ * @license    https://github.com/turiknox/magento-facebook-pixel/LICENSE.md
+ * @version    1.0.0
+ */
+-->
+<config>
+    <tabs>
+        <turiknox translate="label">
+            <label>Turiknox</label>
+            <sort_order>1000</sort_order>
+        </turiknox>
+    </tabs>
+    <sections>
+        <facebookpixel translate="label">
+            <label>Facebook Pixel</label>
+            <tab>turiknox</tab>
+            <sort_order>100</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <integration translate="label">
+                    <label>General</label>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enable translate="label">
+                            <label>Enable</label>
+                            <sort_order>10</sort_order>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enable>
+                        <pixelid translate="label">
+                            <label>Pixel ID</label>
+                            <sort_order>20</sort_order>
+                            <frontend_type>text</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[This can be obtained at
+                            <a href="https://www.facebook.com/ads/manager/pixel/facebook_pixel" target="_blank">
+                                https://www.facebook.com/ads/manager/pixel/facebook_pixel/</a>]]></comment>
+                        </pixelid>
+                        <catalogid translate="label">
+                            <label>Product Catalog ID</label>
+                            <sort_order>30</sort_order>
+                            <frontend_type>text</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <validate>validate-number</validate>
+                        </catalogid>
+                        <events translate="label">
+                            <label>Events To Track</label>
+                            <sort_order>40</sort_order>
+                            <frontend_type>multiselect</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>turiknox_facebookpixel/system_config_source_events</source_model>
+                            <can_be_empty>1</can_be_empty>
+                        </events>
+                    </fields>
+                </integration>
+            </groups>
+        </facebookpixel>
+    </sections>
+</config>

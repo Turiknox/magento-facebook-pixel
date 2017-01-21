@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<!--
+/*
+ * Turiknox_Facebookpixel
+
+ * @category   Turiknox
+ * @package    Turiknox_Facebookpixel
+ * @copyright  Copyright (c) 2017 Turiknox
+ * @license    https://github.com/turiknox/magento-facebook-pixel/LICENSE.md
+ * @version    1.0.0
+ */
+-->
+<config>
+    <modules>
+        <Turiknox_Facebookpixel>
+            <version>1.0.0</version>
+        </Turiknox_Facebookpixel>
+    </modules>
+    <global>
+        <blocks>
+            <turiknox_facebookpixel>
+                <class>Turiknox_Facebookpixel_Block</class>
+            </turiknox_facebookpixel>
+        </blocks>
+        <helpers>
+            <turiknox_facebookpixel>
+                <class>Turiknox_Facebookpixel_Helper</class>
+            </turiknox_facebookpixel>
+        </helpers>
+        <models>
+            <turiknox_facebookpixel>
+                <class>Turiknox_Facebookpixel_Model</class>
+            </turiknox_facebookpixel>
+        </models>
+    </global>
+    <frontend>
+        <events>
+            <checkout_cart_add_product_complete>
+                <observers>
+                    <facebookpixel_addtocart>
+                        <class>turiknox_facebookpixel/observer</class>
+                        <method>setAddToCart</method>
+                        <type>singleton</type>
+                    </facebookpixel_addtocart>
+                </observers>
+            </checkout_cart_add_product_complete>
+            <wishlist_add_product>
+                <observers>
+                    <facebookpixel_addtowishlist>
+                        <class>turiknox_facebookpixel/observer</class>
+                        <method>setAddToWishlist</method>
+                        <type>singleton</type>
+                    </facebookpixel_addtowishlist>
+                </observers>
+            </wishlist_add_product>
+            <customer_register_success>
+                <observers>
+                    <facebookpixel_completeregistration>
+                        <class>turiknox_facebookpixel/observer</class>
+                        <method>setCompleteRegistration</method>
+                        <type>singleton</type>
+                    </facebookpixel_completeregistration>
+                </observers>
+            </customer_register_success>
+            <controller_action_predispatch_checkout_onepage_index>
+                <observers>
+                    <facebookpixel_initiatecheckout>
+                        <class>turiknox_facebookpixel/observer</class>
+                        <method>setInitiateCheckout</method>
+                        <type>singleton</type>
+                    </facebookpixel_initiatecheckout>
+                </observers>
+            </controller_action_predispatch_checkout_onepage_index>
+            <controller_action_predispatch_onestepcheckout_index_index>
+                <observers>
+                    <facebookpixel_initiateosc>
+                        <class>turiknox_facebookpixel/observer</class>
+                        <method>setInitiateOsc</method>
+                        <type>singleton</type>
+                    </facebookpixel_initiateosc>
+                </observers>
+            </controller_action_predispatch_onestepcheckout_index_index>
+            <sales_order_place_after>
+                <observers>
+                    <facebookpixel_purchase>
+                        <class>turiknox_facebookpixel/observer</class>
+                        <method>setPurchase</method>
+                        <type>singleton</type>
+                    </facebookpixel_purchase>
+                </observers>
+            </sales_order_place_after>
+        </events>
+        <layout>
+            <updates>
+                <turiknox_facebookpixel>
+                    <file>turiknox/facebookpixel.xml</file>
+                </turiknox_facebookpixel>
+            </updates>
+        </layout>
+    </frontend>
+    <adminhtml>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <facebookpixel>
+                                            <title>Facebook Pixel Section</title>
+                                        </facebookpixel>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+</config>

@@ -1,0 +1,24 @@
+<?php
+/*
+ * Turiknox_Facebookpixel
+
+ * @category   Turiknox
+ * @package    Turiknox_Facebookpixel
+ * @copyright  Copyright (c) 2017 Turiknox
+ * @license    https://github.com/turiknox/magento-facebook-pixel/LICENSE.md
+ * @version    1.0.0
+ */
+?>
+<?php if ($this->isEventAllowed('complete_registration')): ?>
+    <?php if ($customer = Mage::getSingleton('core/session')->getData('fb_completeregistration')): ?>
+        <?php Mage::getSingleton('core/session')->unsetData('fb_completeregistration'); ?>
+        <script type="text/javascript">
+            fbq(
+                'track', 'CompleteRegistration',
+                {
+                    'status': '<?php echo $customer['status']; ?>'
+                }
+            );
+        </script>
+    <?php endif; ?>
+<?php endif; ?>

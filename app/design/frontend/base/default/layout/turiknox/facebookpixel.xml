@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!--
+/*
+ * Turiknox_Facebookpixel
+
+ * @category   Turiknox
+ * @package    Turiknox_Facebookpixel
+ * @copyright  Copyright (c) 2017 Turiknox
+ * @license    https://github.com/turiknox/magento-facebook-pixel/LICENSE.md
+ * @version    1.0.0
+ */
+-->
+<layout>
+    <default>
+        <reference name="head">
+            <block type="turiknox_facebookpixel/pixel" name="turiknox.facebookpixel.pixel"
+                   template="facebookpixel/pixel.phtml"/>
+        </reference>
+        <reference name="before_body_end">
+            <block type="turiknox_facebookpixel/pixel" name="turiknox.facebookpixel.container"
+                   template="facebookpixel/container.phtml"/>
+        </reference>
+        <reference name="turiknox.facebookpixel.container">
+            <block type="turiknox_facebookpixel/pixel" name="turiknox.facebookpixel.addtocart"
+                   template="facebookpixel/addtocart.phtml"/>
+        </reference>
+        <reference name="turiknox.facebookpixel.container">
+            <block type="turiknox_facebookpixel/pixel" name="turiknox.facebookpixel.completeregistration"
+                   template="facebookpixel/completeregistration.phtml"/>
+        </reference>
+    </default>
+    <customer_logged_in>
+        <reference name="turiknox.facebookpixel.container">
+            <block type="turiknox_facebookpixel/pixel" name="turiknox.facebookpixel.addtowishlist"
+                   template="facebookpixel/addtowishlist.phtml"/>
+        </reference>
+    </customer_logged_in>
+    <catalogsearch_result_index>
+        <update handle="facebookpixel_search"/>
+    </catalogsearch_result_index>
+    <catalogsearch_advanced_result>
+        <update handle="facebookpixel_search"/>
+    </catalogsearch_advanced_result>
+    <facebookpixel_search>
+        <reference name="turiknox.facebookpixel.container">
+            <block type="turiknox_facebookpixel/pixel" name="turiknox.facebookpixel.search"
+                   template="facebookpixel/search.phtml"/>
+        </reference>
+    </facebookpixel_search>
+    <checkout_onepage_index>
+        <update handle="facebookpixel_initiatecheckout"/>
+    </checkout_onepage_index>
+    <onestepcheckout_index_index>
+        <update handle="facebookpixel_initiatecheckout"/>
+    </onestepcheckout_index_index>
+    <facebookpixel_initiatecheckout>
+        <reference name="turiknox.facebookpixel.container">
+            <block type="turiknox_facebookpixel/pixel" name="turiknox.facebookpixel.initiatecheckout"
+                   template="facebookpixel/initiatecheckout.phtml"/>
+        </reference>
+    </facebookpixel_initiatecheckout>
+    <checkout_onepage_success>
+        <reference name="turiknox.facebookpixel.container">
+            <block type="turiknox_facebookpixel/pixel" name="turiknox.facebookpixel.initiatepurchase"
+                   template="facebookpixel/purchase.phtml"/>
+        </reference>
+    </checkout_onepage_success>
+</layout>
