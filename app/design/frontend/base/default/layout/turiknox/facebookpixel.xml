@@ -53,6 +53,9 @@
     <onestepcheckout_index_index>
         <update handle="facebookpixel_initiatecheckout"/>
     </onestepcheckout_index_index>
+    <opc_index_index>
+        <update handle="facebookpixel_initiatecheckout"/>
+    </opc_index_index>
     <facebookpixel_initiatecheckout>
         <reference name="turiknox.facebookpixel.container">
             <block type="turiknox_facebookpixel/pixel" name="turiknox.facebookpixel.initiatecheckout"

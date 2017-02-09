@@ -80,6 +80,15 @@
                     </facebookpixel_initiateosc>
                 </observers>
             </controller_action_predispatch_onestepcheckout_index_index>
+            <controller_action_predispatch_opc_index_index>
+                <observers>
+                    <facebookpixel_initiateiwd>
+                        <class>turiknox_facebookpixel/observer</class>
+                        <method>setInitiateIwd</method>
+                        <type>singleton</type>
+                    </facebookpixel_initiateiwd>
+                </observers>
+            </controller_action_predispatch_opc_index_index>
             <sales_order_place_after>
                 <observers>
                     <facebookpixel_purchase>

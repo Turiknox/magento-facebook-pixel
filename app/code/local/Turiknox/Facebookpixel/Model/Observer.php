@@ -116,6 +116,19 @@ class Turiknox_Facebookpixel_Model_Observer
     }
 
     /**
+     * If IWD OPC is enabled, head to initiateCheckout()
+     *
+     * @return $this
+     */
+    public function setInitiateIwd()
+    {
+        if (Mage::getConfig()->getModuleConfig('IWD_Opc')->is('active', 'true')) {
+                $this->setInitiateCheckout();
+        }
+        return $this;
+    }
+
+    /**
      * Set purchase data when customer places an order
      *
      * @param $observer
