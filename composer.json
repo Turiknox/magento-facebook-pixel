@@ -1,0 +1,10 @@
+{
+  "name": "turkinox/magento-facebook-pixel",
+  "license": "MIT",
+  "type": "magento-module",
+  "description": "",
+  "homepage": "https://github.com/Turiknox/magento-facebook-pixel",
+  "require": {
+    "magento-hackathon/magento-composer-installer": "*"
+  }
+}
