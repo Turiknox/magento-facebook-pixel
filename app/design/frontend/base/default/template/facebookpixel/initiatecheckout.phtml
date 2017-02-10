@@ -20,8 +20,9 @@
                     'num_items': '<?php echo $checkout['num_items']; ?>',
                     'currency': '<?php echo $checkout['currency']; ?>',
                     'content_type': '<?php echo $checkout['content_type']; ?>',
-                    'content_ids': ['<?php echo implode("','", $checkout['content_ids']); ?>'],
-                    'product_catalog_id': <?php echo $this->escapeHtml($this->getProductCatalogId()); ?>
+                    'content_ids': ['<?php echo implode("','", $checkout['content_ids']); ?>']<?php if(trim($this->getProductCatalogId()) !== ''): ?>,
+                    'product_catalog_id': '<?php echo $this->escapeHtml($this->getProductCatalogId()); ?>'
+                    <?php endif; ?>
                 }
             );
         </script>
