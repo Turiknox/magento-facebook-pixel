@@ -105,14 +105,42 @@ class Turiknox_Facebookpixel_Model_Observer
      *
      * @return $this
      */
-    public function setInitiateOsc()
+    public function setInitiateIdevOsc()
     {
-        if (Mage::getConfig()->getModuleConfig('Idev_OneStepCheckout')->is('active', 'true')) {
+        if ($this->isCheckoutModuleEnabled('Idev_OneStepCheckout')) {
+            // Additional check if the module is enabled in the admin
             if (Mage::helper('onestepcheckout')->isRewriteCheckoutLinksEnabled()) {
                 $this->setInitiateCheckout();
             }
         }
         return $this;
+    }
+
+    /**
+     * If IWD One Page Checkout is enabled, head to initiateCheckout()
+     *
+     * @return $this
+     */
+    public function setInitiateIwdOpc()
+    {
+        if ($this->isCheckoutModuleEnabled('IWD_Opc')) {
+            // Additional check if the module is enabled in the admin
+            if (Mage::helper('opc')->isEnable()) {
+                $this->setInitiateCheckout();
+            }
+        }
+        return $this;
+    }
+
+    /**
+     * Check if the checkout module is enabled in XML
+     *
+     * @param $module
+     * @return boolean
+     */
+    public function isCheckoutModuleEnabled($module)
+    {
+        return Mage::getConfig()->getModuleConfig($module)->is('active', 'true');
     }
 
     /**

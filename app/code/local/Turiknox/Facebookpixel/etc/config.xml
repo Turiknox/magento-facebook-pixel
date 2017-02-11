@@ -13,7 +13,7 @@
 <config>
     <modules>
         <Turiknox_Facebookpixel>
-            <version>1.0.0</version>
+            <version>1.1.0</version>
         </Turiknox_Facebookpixel>
     </modules>
     <global>
@@ -73,13 +73,22 @@
             </controller_action_predispatch_checkout_onepage_index>
             <controller_action_predispatch_onestepcheckout_index_index>
                 <observers>
-                    <facebookpixel_initiateosc>
+                    <facebookpixel_initiate_idevosc>
                         <class>turiknox_facebookpixel/observer</class>
-                        <method>setInitiateOsc</method>
+                        <method>setInitiateIdevOsc</method>
                         <type>singleton</type>
-                    </facebookpixel_initiateosc>
+                    </facebookpixel_initiate_idevosc>
                 </observers>
             </controller_action_predispatch_onestepcheckout_index_index>
+            <controller_action_predispatch_opc_index_index>
+                <observers>
+                    <facebookpixel_initiate_iwdopc>
+                        <class>turiknox_facebookpixel/observer</class>
+                        <method>setInitiateIwdOpc</method>
+                        <type>singleton</type>
+                    </facebookpixel_initiate_iwdopc>
+                </observers>
+            </controller_action_predispatch_opc_index_index>
             <sales_order_place_after>
                 <observers>
                     <facebookpixel_purchase>
