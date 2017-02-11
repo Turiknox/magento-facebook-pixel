@@ -5,8 +5,8 @@
  * @category   Turiknox
  * @package    Turiknox_Facebookpixel
  * @copyright  Copyright (c) 2017 Turiknox
- * @license    https://github.com/turiknox/magento-facebook-pixel/LICENSE.md
- * @version    1.0.0
+ * @license    https://github.com/Turiknox/magento-facebook-pixel/blob/master/LICENSE.md
+ * @version    1.1.1
  */
 class Turiknox_Facebookpixel_Block_Pixel extends Mage_Core_Block_Template
 {
