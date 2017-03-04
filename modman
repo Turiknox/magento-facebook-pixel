@@ -1,4 +1,4 @@
-app/code/local/Turiknox/Facebookpixel app/code/local/Turiknox/Facebookpixel
+app/code/community/Turiknox/Facebookpixel app/code/community/Turiknox/Facebookpixel
 app/design/frontend/base/default/layout/turiknox/facebookpixel.xml app/design/frontend/base/default/layout/turiknox/facebookpixel.xml
 app/design/frontend/base/default/template/facebookpixel app/design/frontend/base/default/template/facebookpixel
 app/etc/modules/Turiknox_Facebookpixel.xml app/etc/modules/Turiknox_Facebookpixel.xml
