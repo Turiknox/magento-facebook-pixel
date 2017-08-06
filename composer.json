@@ -1,5 +1,5 @@
 {
-  "name": "turkinox/magento-facebook-pixel",
+  "name": "turiknox/magento-facebook-pixel",
   "license": "MIT",
   "type": "magento-module",
   "description": "A Magento module that will allow you to integrate the Facebook Pixel onto your website and the ability to track several standard events.",
